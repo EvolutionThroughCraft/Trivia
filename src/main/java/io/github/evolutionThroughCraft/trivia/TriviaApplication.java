@@ -1,4 +1,4 @@
-package io.github.evolutionThroughCraft.service.trivia;
+package io.github.evolutionThroughCraft.trivia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
