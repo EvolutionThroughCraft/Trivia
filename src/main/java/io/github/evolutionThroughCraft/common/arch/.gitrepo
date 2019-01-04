@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/EvolutionThroughCraft/CommonArchitecture.git
 	branch = master
-	commit = 6d2618b5f0d509ba2ff6f229443fabbcfb80c6ed
-	parent = f88fbdd36cee22d04ec28a10d5a05d2c74cafa6e
+	commit = d7dcf13f4a420bbcbe2e2a7635f0f096c4969278
+	parent = 27cd1594688415546575f3f1fdd8e7a2cb466936
 	method = merge
 	cmdver = 0.4.0
