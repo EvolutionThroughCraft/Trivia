@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
+import io.github.evolutionThroughCraft.trivia.rest.GetMatchingOperation;
 
 /**
  *
@@ -37,22 +37,19 @@ import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 public class TriviaController implements TriviaRoutes {
     
     private static final Logger scribe = Logger.getLogger(TriviaController.class);
-
-//    @Autowired
-//    private TriviaRepository triviaRepo;
     
     @Autowired
     private CreateOperation createOperation;
     
-//    @Autowired
-//    private CheckUniqueOperation checkUniqueOperation;
+    @Autowired
+    private GetMatchingOperation getMatching;
     
     @Autowired
     private UpdateOperation addAnswerOperation;
     
     @GetMapping(GET_TRIVIA_PATH)
     public List<TriviaForm> findMatching(@Valid @RequestBody TriviaForm form) {
-        return null;
+        return getGetMatching().run(form);
     }
     
     @PostMapping(POST_TRIVIA_PATH)
@@ -68,6 +65,6 @@ public class TriviaController implements TriviaRoutes {
                                 @Valid @RequestBody TriviaForm form
     ) {
         ResourceUtility.ensureIdsEqual(id, form.getTriviaId());
-        return addAnswerOperation.run(form);
+        return getAddAnswerOperation().run(form);
     }
 }

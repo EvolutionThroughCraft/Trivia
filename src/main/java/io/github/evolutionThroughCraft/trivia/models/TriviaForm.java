@@ -6,9 +6,7 @@
 package io.github.evolutionThroughCraft.trivia.models;
 
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TriviaPojo;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import io.github.evolutionThroughCraft.common.service.main.api.Trivia;
 
 /**

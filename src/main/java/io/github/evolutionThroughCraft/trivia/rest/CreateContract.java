@@ -19,7 +19,7 @@ public class CreateContract implements Contract<TriviaForm> {
     
     @Override
     public void validate(TriviaForm form) {
-        ResourceUtility.ensureResource(form, "KnowledgeForm Missing");
+        ResourceUtility.ensureResource(form, "TriviaForm Missing");
         ResourceUtility.ensureResource(form.getQuestion(), "Question Missing");        
         ResourceUtility.ensureResource(form.getCreateUser(), "CreateUser Missing");
         ResourceUtility.ensureResource(form.getUpdateUser(), "UpdateUser Missing");

@@ -6,7 +6,6 @@
 package io.github.evolutionThroughCraft.trivia.rest;
 
 import io.github.evolutionThroughCraft.common.arch.orchestrators.ContractOperation;
-import io.github.evolutionThroughCraft.common.arch.orchestrators.Operation;
 import io.github.evolutionThroughCraft.trivia.models.TriviaEntity;
 import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
 import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
@@ -22,6 +21,9 @@ import org.springframework.stereotype.Component;
 @Getter
 public class CreateOperation extends ContractOperation<TriviaForm, TriviaForm, CreateContract> {
 
+    @Autowired
+    private CreateContract contract;
+    
     @Autowired
     private TriviaRepository triviaRepo;
     

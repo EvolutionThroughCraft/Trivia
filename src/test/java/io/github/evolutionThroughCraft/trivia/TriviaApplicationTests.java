@@ -1,4 +1,4 @@
-package io.github.evolutionThroughCraft.service.trivia;
+package io.github.evolutionThroughCraft.trivia;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

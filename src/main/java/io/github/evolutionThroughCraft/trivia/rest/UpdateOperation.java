@@ -22,6 +22,9 @@ import org.springframework.stereotype.Component;
 public class UpdateOperation extends ContractOperation<TriviaForm, TriviaForm, UpdateContract> {
     
     @Autowired
+    private UpdateContract contract;
+    
+    @Autowired
     private TriviaRepository triviaRepo;
 
     @Override

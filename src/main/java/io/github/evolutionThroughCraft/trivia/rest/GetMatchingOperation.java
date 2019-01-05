@@ -9,6 +9,8 @@ import io.github.evolutionThroughCraft.common.arch.orchestrators.SimpleOperation
 import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
 import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 import java.util.List;
+import java.util.stream.Collectors;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Component;
  * @author dwin
  */
 @Component
+@Getter
 public class GetMatchingOperation extends SimpleOperation<TriviaForm, List<TriviaForm>>{
     
     @Autowired
@@ -24,7 +27,10 @@ public class GetMatchingOperation extends SimpleOperation<TriviaForm, List<Trivi
         
     @Override
     public List<TriviaForm> perform(TriviaForm request) {
-        
-        return null;
+        return getTriviaRepo()
+                        .findByQuestionLikeIgnoreCase(request.getQuestion())
+                        .stream()
+                        .map((entity) -> new TriviaForm(entity))
+                        .collect(Collectors.toList());
     }
 }
