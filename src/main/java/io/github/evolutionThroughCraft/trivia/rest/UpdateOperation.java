@@ -22,12 +22,12 @@ import org.springframework.stereotype.Component;
 public class UpdateOperation extends ContractOperation<TriviaForm, TriviaForm, UpdateContract> {
     
     @Autowired
-    private TriviaRepository knowledgeRepo;
+    private TriviaRepository triviaRepo;
 
     @Override
     public TriviaForm perform(TriviaForm form) {
         TriviaEntity entity = new TriviaEntity(form);
-        TriviaEntity saved = getKnowledgeRepo().save(entity);
+        TriviaEntity saved = getTriviaRepo().save(entity);
         return new TriviaForm(saved);
     }
 }

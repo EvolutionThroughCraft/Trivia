@@ -11,9 +11,9 @@ import java.util.Date;
  *
  * @author dwin
  */
-public interface Knowledge {
+public interface Trivia {
     
-    public Long getKnowledgeId();
+    public Long getTriviaId();
     public String getQuestion();
     public String getAnswer();
     public Date getCreateTime();

@@ -5,22 +5,22 @@
  */
 package io.github.evolutionThroughCraft.trivia.models;
 
-import io.github.evolutionThroughCraft.common.service.main.api.Knowledge;
-import io.github.evolutionThroughCraft.common.service.main.api.pojo.KnowledgePojo;
+import io.github.evolutionThroughCraft.common.service.main.api.pojo.TriviaPojo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import io.github.evolutionThroughCraft.common.service.main.api.Trivia;
 
 /**
  *
  * @author dwin
  */
 @NoArgsConstructor
-public class TriviaForm extends KnowledgePojo implements Knowledge {
+public class TriviaForm extends TriviaPojo implements Trivia {
     
     public TriviaForm(TriviaEntity entity) {
         super();
-        setKnowledgeId(entity.getKnowledgeId());
+        setTriviaId(entity.getTriviaId());
         setQuestion(entity.getQuestion());
         setAnswer(entity.getAnswer());
         setCreateTime(entity.getCreateTime());

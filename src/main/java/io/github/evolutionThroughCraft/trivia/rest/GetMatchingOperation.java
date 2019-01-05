@@ -6,8 +6,8 @@
 package io.github.evolutionThroughCraft.trivia.rest;
 
 import io.github.evolutionThroughCraft.common.arch.orchestrators.SimpleOperation;
-import io.github.evolutionThroughCraft.knowledge.models.KnowledgeForm;
-import io.github.evolutionThroughCraft.knowledge.repo.KnowledgeRepository;
+import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
+import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
  * @author dwin
  */
 @Component
-public class GetMatchingOperation extends SimpleOperation<KnowledgeForm, List<KnowledgeForm>>{
+public class GetMatchingOperation extends SimpleOperation<TriviaForm, List<TriviaForm>>{
     
     @Autowired
-    private KnowledgeRepository knowledgeRepo;
+    private TriviaRepository triviaRepo;
         
     @Override
-    public List<KnowledgeForm> perform(KnowledgeForm request) {
+    public List<TriviaForm> perform(TriviaForm request) {
         
         return null;
     }

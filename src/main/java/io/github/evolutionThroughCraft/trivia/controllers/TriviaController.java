@@ -6,6 +6,7 @@
 package io.github.evolutionThroughCraft.trivia.controllers;
 
 
+import io.github.evolutionThroughCraft.common.service.main.routes.TriviaRoutes;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
 import io.github.evolutionThroughCraft.trivia.rest.CreateOperation;
@@ -33,12 +34,12 @@ import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 @RestController
 @RequestMapping
 @Getter
-public class TriviaController implements KnowledgeRoutes {
+public class TriviaController implements TriviaRoutes {
     
     private static final Logger scribe = Logger.getLogger(TriviaController.class);
 
-    @Autowired
-    private TriviaRepository knowledgeRepo;
+//    @Autowired
+//    private TriviaRepository triviaRepo;
     
     @Autowired
     private CreateOperation createOperation;
@@ -49,24 +50,24 @@ public class TriviaController implements KnowledgeRoutes {
     @Autowired
     private UpdateOperation addAnswerOperation;
     
-    @GetMapping(GET_KNOWLEDGE_PATH)
+    @GetMapping(GET_TRIVIA_PATH)
     public List<TriviaForm> findMatching(@Valid @RequestBody TriviaForm form) {
         return null;
     }
     
-    @PostMapping(POST_KNOWLEDGE_PATH)
+    @PostMapping(POST_TRIVIA_PATH)
     @ResponseStatus(HttpStatus.CREATED)
     public TriviaForm createKnowledge(@Valid @RequestBody TriviaForm form) {
         return getCreateOperation().run(form);
     }
     
-    @PutMapping(PUT_KNOWLEDGE_PATH)
+    @PutMapping(PUT_TRIVIA_PATH)
     @ResponseStatus(HttpStatus.OK)
     public TriviaForm updateKnowledge(
-                                @PathVariable(KNOWLEDGE_ID_VAR) Long id,
+                                @PathVariable(TRIVIA_ID_VAR) Long id,
                                 @Valid @RequestBody TriviaForm form
     ) {
-        ResourceUtility.ensureIdsEqual(id, form.getKnowledgeId());
+        ResourceUtility.ensureIdsEqual(id, form.getTriviaId());
         return addAnswerOperation.run(form);
     }
 }

@@ -7,9 +7,9 @@ package io.github.evolutionThroughCraft.trivia.rest;
 
 import io.github.evolutionThroughCraft.common.arch.orchestrators.ContractOperation;
 import io.github.evolutionThroughCraft.common.arch.orchestrators.Operation;
-import io.github.evolutionThroughCraft.knowledge.models.KnowledgeEntity;
-import io.github.evolutionThroughCraft.knowledge.models.KnowledgeForm;
-import io.github.evolutionThroughCraft.knowledge.repo.KnowledgeRepository;
+import io.github.evolutionThroughCraft.trivia.models.TriviaEntity;
+import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
+import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,15 +20,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Getter
-public class CreateOperation extends ContractOperation<KnowledgeForm, KnowledgeForm, CreateContract> {
+public class CreateOperation extends ContractOperation<TriviaForm, TriviaForm, CreateContract> {
 
     @Autowired
-    private KnowledgeRepository knowledgeRepo;
+    private TriviaRepository triviaRepo;
     
     @Override
-    public KnowledgeForm perform(KnowledgeForm form) {
-        KnowledgeEntity entity = new KnowledgeEntity(form);
-        KnowledgeEntity saved = getKnowledgeRepo().save(entity);
-        return new KnowledgeForm(saved);
+    public TriviaForm perform(TriviaForm form) {
+        TriviaEntity entity = new TriviaEntity(form);
+        TriviaEntity saved = getTriviaRepo().save(entity);
+        return new TriviaForm(saved);
     }
 }

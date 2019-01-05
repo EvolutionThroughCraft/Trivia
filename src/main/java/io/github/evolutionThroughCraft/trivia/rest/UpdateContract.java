@@ -6,8 +6,8 @@
 package io.github.evolutionThroughCraft.trivia.rest;
 
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
-import io.github.evolutionThroughCraft.knowledge.models.KnowledgeForm;
-import io.github.evolutionThroughCraft.knowledge.repo.KnowledgeRepository;
+import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
+import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,15 +19,15 @@ import org.springframework.stereotype.Component;
 public class UpdateContract extends CreateContract {
     
     @Autowired
-    private KnowledgeRepository knowledgeRepo;
+    private TriviaRepository triviaRepo;
     
     @Override
-    public void validate(KnowledgeForm form) {
+    public void validate(TriviaForm form) {
         // run create validations
         super.validate(form);
         // update specific validations
-        ResourceUtility.ensureResource(form.getKnowledgeId(), "Knowledge Id Missing");
+        ResourceUtility.ensureResource(form.getTriviaId(), "Trivia Id Missing");
         ResourceUtility.ensureResource(form.getAnswer(), "Answer Missing");
-        ResourceUtility.ensureResource(knowledgeRepo.getOne(form.getKnowledgeId()), "Existing Record Missing");        
+        ResourceUtility.ensureResource(triviaRepo.getOne(form.getTriviaId()), "Existing Record Missing");        
     }
 }

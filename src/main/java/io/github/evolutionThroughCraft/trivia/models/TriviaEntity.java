@@ -5,7 +5,6 @@
  */
 package io.github.evolutionThroughCraft.trivia.models;
 
-import io.github.evolutionThroughCraft.common.service.main.api.Knowledge;
 import io.github.evolutionThroughCraft.common.service.main.models.Stamps;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,24 +15,25 @@ import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import io.github.evolutionThroughCraft.common.service.main.api.Trivia;
 
 /**
  *
  * @author dwin
  */
 @Entity
-@Table(name = "knowledges")
+@Table(name = "trivias")
 @Getter @Setter
 @NoArgsConstructor
-public class TriviaEntity extends Stamps<String> implements Knowledge {
+public class TriviaEntity extends Stamps<String> implements Trivia {
     
-    @Id @GeneratedValue(generator = "knowledge_generator")
+    @Id @GeneratedValue(generator = "trivia_generator")
     @SequenceGenerator(
-            name = "knowledge_generator",
-            sequenceName = "knowledge_sequence",
+            name = "trivia_generator",
+            sequenceName = "trivia_sequence",
             initialValue = 1000
     )
-    private Long knowledgeId;
+    private Long triviaId;
     
     @NotBlank
     private String question;
@@ -44,7 +44,7 @@ public class TriviaEntity extends Stamps<String> implements Knowledge {
     
     public TriviaEntity(TriviaForm form) {
         super();
-        setKnowledgeId(form.getKnowledgeId());
+        setTriviaId(form.getTriviaId());
         setQuestion(form.getQuestion());
         setAnswer(form.getAnswer());
         setCreateTime(form.getCreateTime());

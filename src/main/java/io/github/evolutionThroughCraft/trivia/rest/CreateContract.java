@@ -7,7 +7,7 @@ package io.github.evolutionThroughCraft.trivia.rest;
 
 import io.github.evolutionThroughCraft.common.arch.contracts.Contract;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
-import io.github.evolutionThroughCraft.trivia.models.KnowledgeForm;
+import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
  * @author dwin
  */
 @Component
-public class CreateContract implements Contract<KnowledgeForm> {
+public class CreateContract implements Contract<TriviaForm> {
     
     @Override
-    public void validate(KnowledgeForm form) {
+    public void validate(TriviaForm form) {
         ResourceUtility.ensureResource(form, "KnowledgeForm Missing");
         ResourceUtility.ensureResource(form.getQuestion(), "Question Missing");        
         ResourceUtility.ensureResource(form.getCreateUser(), "CreateUser Missing");

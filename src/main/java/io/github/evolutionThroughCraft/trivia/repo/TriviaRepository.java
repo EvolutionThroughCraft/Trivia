@@ -5,7 +5,7 @@
  */
 package io.github.evolutionThroughCraft.trivia.repo;
 
-import io.github.evolutionThroughCraft.knowledge.models.KnowledgeEntity;
+import io.github.evolutionThroughCraft.trivia.models.TriviaEntity;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author dwin
  */
-public interface TriviaRepository extends JpaRepository<KnowledgeEntity, Long> {
+public interface TriviaRepository extends JpaRepository<TriviaEntity, Long> {
     
-    public List<KnowledgeEntity> findByQuestionLikeIgnoreCase(String question);
+    public List<TriviaEntity> findByQuestionLikeIgnoreCase(String question);
 }
