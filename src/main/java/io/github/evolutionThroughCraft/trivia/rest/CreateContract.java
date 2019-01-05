@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  *
  * @author dwin
  */
-@Component
+@Component("triviaCreate")
 public class CreateContract implements Contract<TriviaForm> {
     
     @Override

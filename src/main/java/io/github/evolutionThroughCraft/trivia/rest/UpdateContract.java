@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  *
  * @author dwin
  */
-@Component
+@Component("triviaUpdate")
 public class UpdateContract extends CreateContract {
     
     @Autowired

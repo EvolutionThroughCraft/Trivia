@@ -11,6 +11,7 @@ import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
 import io.github.evolutionThroughCraft.trivia.repo.TriviaRepository;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Getter
 public class UpdateOperation extends ContractOperation<TriviaForm, TriviaForm, UpdateContract> {
     
-    @Autowired
+    @Autowired @Qualifier("triviaUpdate")
     private UpdateContract contract;
     
     @Autowired
