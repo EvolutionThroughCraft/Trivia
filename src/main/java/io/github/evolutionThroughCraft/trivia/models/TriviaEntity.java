@@ -37,7 +37,7 @@ public class TriviaEntity extends Stamps<String> implements Trivia {
     
     @NotBlank
     private String question;
-    @NotBlank
+
     private String answer;
     
     ///////
