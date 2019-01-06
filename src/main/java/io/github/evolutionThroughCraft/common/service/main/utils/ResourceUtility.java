@@ -9,6 +9,9 @@ import io.github.evolutionThroughCraft.common.service.main.api.Account;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.AccountPojo;
 import io.github.evolutionThroughCraft.common.service.main.models.BadRequestException;
 import io.github.evolutionThroughCraft.common.service.main.models.ResourceNotFoundException;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -30,7 +33,7 @@ public class ResourceUtility {
         return resource;
     }
     
-    public static <T> void ensureIdsEqual(T firstId, T secondId) {
+    public static <Id> void ensureIdsEqual(Id firstId, Id secondId) {
         if(null == firstId || null == secondId || !firstId.equals(secondId)) {
             throw new BadRequestException();
         }
@@ -42,5 +45,9 @@ public class ResourceUtility {
         } else {
             return maybe[0];
         }
+    }
+    
+    public static <T> List<T> asList(T[] result) {
+        return new LinkedList<T>(Arrays.asList(result));
     }
 }
