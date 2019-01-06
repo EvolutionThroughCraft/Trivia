@@ -7,7 +7,6 @@ package io.github.evolutionThroughCraft.trivia.controllers;
 
 
 import io.github.evolutionThroughCraft.common.service.main.routes.TriviaRoutes;
-import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import io.github.evolutionThroughCraft.trivia.models.TriviaForm;
 import io.github.evolutionThroughCraft.trivia.rest.CreateOperation;
 import io.github.evolutionThroughCraft.trivia.rest.UpdateOperation;
@@ -64,7 +63,7 @@ public class TriviaController implements TriviaRoutes {
                                 @PathVariable(TRIVIA_ID_VAR) Long id,
                                 @Valid @RequestBody TriviaForm form
     ) {
-        ResourceUtility.ensureIdsEqual(id, form.getTriviaId());
+        form.setTriviaId(id);
         return getAddAnswerOperation().run(form);
     }
 }
